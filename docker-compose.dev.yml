@@ -8,11 +8,13 @@ networks:
 
 services:
   mysql:
+    container_name: "perola_negra_db"
+    networks:
+      - app_net
     image: mysql:8
-    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 1234@abcd
-      MYSQL_DATABASE: perola_negra
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=1234@abcd
     ports:
       - 3306:3306
     volumes:
